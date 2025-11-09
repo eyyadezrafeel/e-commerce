@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-export interface Product {   // ✅ export this interface
+export interface Product { 
   id: number;
   name: string;
   description: string;

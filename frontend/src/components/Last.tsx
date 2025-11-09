@@ -28,6 +28,7 @@ export default function Last() {
 
 
         </div>
+        <h2 className='text-[#B3001B] text-2xl cursor-pointer'>Click to be a store owner</h2>
         </div>
          <img className='w-[50%] h-[50%] flex animate-pulse'  src={Logo} alt="" />
 

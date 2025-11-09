@@ -4,7 +4,7 @@ import PriceRange from './PriceRange'
 export default function Filter() {
   return (
     <div className=' top-0 left-0 '>
-     <div className="flex flex-col gap-20 p-6 pt-[20vh]  w-[20vw] h-[100vh] bg-[#000000]" >
+     <div className="flex flex-col gap-20 p-6 pt-[20vh]  w-[20vw] h-[100%] bg-[#000000]" >
       {/* ---------- TOOLS CATEGORY ---------- */}
       <div className="relative group">
         <div className="bg-[#000000] text-[#9F9D9D] px-4 py-2 rounded cursor-pointer w-[50%]">

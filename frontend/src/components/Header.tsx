@@ -52,7 +52,7 @@ export default function Header() {
                 <MdCategory className='h-4' /> Category
               </h3>
               <h3 className='text-[#9F9D9D] flex gap-1 items-center border border-black rounded-3xl px-2 p-1 cursor-pointer hover:border-[#B3001B]'>
-                <Heart className='h-4' /> Favorite
+                <Heart className='h-4  ' /> Favorite
               </h3>
             </div>
           </div>

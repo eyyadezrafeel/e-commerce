@@ -8,7 +8,7 @@ const itemSchema = new mongoose.Schema({
   category: { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
   subcategory: { type: mongoose.Schema.Types.ObjectId, ref: "SubCategory" },
 
-  // Ratings array
+  
   ratings: [
     {
       user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },

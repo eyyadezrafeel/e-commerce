@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import { FiUser, FiSearch } from "react-icons/fi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Home, Heart } from "lucide-react";
 import { MdCategory } from 'react-icons/md';
 import Logo from "../assets/Logo.png";
+
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true);
@@ -44,22 +46,41 @@ export default function Header() {
               />
               <FiSearch className='absolute right-3 top-1/2 -translate-y-1/2 text-[#9F9D9D] cursor-pointer' />
             </div>
-            <div className='flex flex-row justify-between pt-6'>
-              <h3 className='text-[#9f9d9d] flex gap-1 items-center border border-black rounded-3xl px-2 p-1 cursor-pointer hover:border-[#B3001B]'>
-                <Home className='h-4' /> Home
-              </h3>
-              <h3 className='text-[#9F9D9D] flex gap-1 items-center border border-black rounded-3xl px-2 p-1 cursor-pointer hover:border-[#B3001B]'>
-                <MdCategory className='h-4' /> Category
-              </h3>
-              <h3 className='text-[#9F9D9D] flex gap-1 items-center border border-black rounded-3xl px-2 p-1 cursor-pointer hover:border-[#B3001B]'>
-                <Heart className='h-4  ' /> Favorite
-              </h3>
-            </div>
+           <div className='flex flex-row justify-between pt-6'>
+  <Link 
+    to="/" 
+    className='text-[#9f9d9d] flex gap-2 items-center 
+              border border-black rounded-3xl px-4 py-2 
+              cursor-pointer hover:border-[#B3001B]'
+  >
+    <Home className='h-4' /> Home
+  </Link>
+  
+  <Link 
+    to="/store" 
+    className='text-[#9f9d9d] flex gap-2 items-center 
+              border border-black rounded-3xl px-4 py-2 
+              cursor-pointer hover:border-[#B3001B]'
+  >
+    <MdCategory className='h-4' /> Store
+  </Link>
+  
+  <Link 
+    to="/favorites" 
+    className='text-[#9f9d9d] flex gap-2 items-center 
+              border border-black rounded-3xl px-4 py-2 
+              cursor-pointer hover:border-[#B3001B]'
+  >
+    <Heart className='h-4' /> Favorite
+  </Link>
+</div>
           </div>
           <div className='flex flex-row justify-between w-[22vw] h-10'>
-            <button className='text-[#9F9D9D] border border-[#9F9D9D] rounded-2xl lg:p-2 sm:p-1 flex items-center cursor-pointer'>
-              <FiUser className='flex animate-bounce' /> connect
-            </button>
+            <Link to="/login"
+            className='text-[#9F9D9D] border border-[#9F9D9D] rounded-2xl lg:p-2 sm:p-1 flex items-center cursor-pointer'>
+            <FiUser className='flex animate-bounce' /> connect
+            </Link>
+            
             <button className='text-[#9F9D9D] border border-[#9F9D9D] rounded-2xl p-2 flex items-center cursor-pointer'>
               <AiOutlineShoppingCart className='m-1' />Total price: 0
             </button>

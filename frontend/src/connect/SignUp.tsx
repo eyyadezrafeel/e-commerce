@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function SignUp() {
   return (
@@ -10,7 +11,8 @@ export default function SignUp() {
             <input className='border border-[#B3001B] w-[300px] p-2 rounded-3xl placeholder:text-white ' type="password" placeholder='Enter your password'  />
             <button className='border border-[#B3001B] text-white p-4 rounded-4xl'>Submit</button>
             <p className='text-white'> Already have an account?</p>
-            <a className='text-[#B3001B]' href="">Login</a>
+            <Link to="/login" className='text-[#B3001B]'>Login</Link>
+          
 
 
         </div>

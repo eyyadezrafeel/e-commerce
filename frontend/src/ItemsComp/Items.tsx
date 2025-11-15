@@ -7,7 +7,7 @@ export default function Items() {
   return (
     <div className='flex flex-row'>
     <Filter/>
-    <div className='w-[80vw] bg-[#000000] grid grid-cols-3 gap-4 p-4 h-[100%]  ' >
+    <div className='w-[80vw] bg-[#000000] grid grid-cols-3 gap-4 p-4 h-[100%] mt-30 p-10 ' >
 
 {categorysproducts.map((p) => ( 
         <div className="min-w-[20vw] max-w-[25vw] cursor-pointer  bg-[#000000] border border-[#B3001B] shadow rounded-lg p-4 flex flex-col justify-between flex-shrink-0 hover:scale-105 transform transition" key={p.id}>

@@ -6,8 +6,9 @@ import Last from './components/Last'
 import Login from './connect/Login'
 import SignUp from './connect/SignUp'
 import CreateStore from './connect/CreateStore'
-
 import Items from './ItemsComp/Items'
+import { BrowserRouter,Routes,Route } from 'react-router-dom'
+
 export default function App() {
   return (
     <div >

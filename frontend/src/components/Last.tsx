@@ -31,7 +31,7 @@ export default function Last() {
 
         </div>
         <h2 className='text-[#B3001B] text-2xl cursor-pointer'>
-          <Link to="">
+          <Link to="/CreateStore">
           Click to be a store owner
           </Link>
           </h2>

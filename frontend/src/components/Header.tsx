@@ -5,7 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Home, Heart } from "lucide-react";
 import { MdCategory } from 'react-icons/md';
 import Logo from "../assets/Logo.png";
-import Landing from '../pages/Landing';
+import ThemeToggle from './ThemeToggle';
 
 
 export default function Header() {
@@ -35,15 +35,15 @@ export default function Header() {
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className=' flex flex-row justify-between items-center w-[100vw] h-[20vh] md:p-8 sm:p-4 bg-[#000000]'>
-        <Link to="/Landing">
+  <div className=' flex flex-row justify-between items-center w-screen h-[20vh] md:p-8 sm:p-4 bg-white'>
+        <Link to="/">
         <img className='w-[10vw]' src={Logo} alt="" />
         </Link>
         <div className='flex flex-row justify-between w-[70vw]'>
           <div>
             <div className='relative flex items-center w-[30vw]'>
               <input
-                className="border border-[#B3001B] text-[#9F9D9D] placeholder-[#9F9D9D] rounded-3xl p-2 w-[30vw] outline-none shadow-sm focus:shadow-lg focus:shadow-[#B3001B] transition-all duration-200"
+                className="border border-[#7EC8FF] text-[#52525B] placeholder-[#9F9D9D] rounded-3xl p-2 w-[30vw] outline-none shadow-sm focus:shadow-lg focus:shadow-[#7EC8FF] transition-all duration-200"
                 type="text"
                 placeholder='search...'
               />
@@ -52,33 +52,34 @@ export default function Header() {
            <div className='flex flex-row justify-between pt-6'>
   <Link 
     to="/landing" 
-    className='text-[#9f9d9d] flex gap-2 items-center 
-              border border-black rounded-3xl px-4 py-2 
-              cursor-pointer hover:border-[#B3001B]'
+    className='text-[#6b7280] flex gap-2 items-center 
+              border border-gray-300 rounded-3xl px-4 py-2 
+              cursor-pointer hover:border-[#7EC8FF]'
   >
     <Home className='h-4' /> Home
   </Link>
   
   <Link 
     to="/store" 
-    className='text-[#9f9d9d] flex gap-2 items-center 
-              border border-black rounded-3xl px-4 py-2 
-              cursor-pointer hover:border-[#B3001B]'
+    className='text-[#6b7280] flex gap-2 items-center 
+              border border-gray-300 rounded-3xl px-4 py-2 
+              cursor-pointer hover:border-[#7EC8FF]'
   >
     <MdCategory className='h-4' /> Store
   </Link>
   
   <Link 
     to="/favorites" 
-    className='text-[#9f9d9d] flex gap-2 items-center 
-              border border-black rounded-3xl px-4 py-2 
-              cursor-pointer hover:border-[#B3001B]'
+    className='text-[#6b7280] flex gap-2 items-center 
+              border border-gray-300 rounded-3xl px-4 py-2 
+              cursor-pointer hover:border-[#7EC8FF]'
   >
     <Heart className='h-4' /> Favorite
   </Link>
 </div>
           </div>
           <div className='flex flex-row justify-between w-[22vw] h-10'>
+            <ThemeToggle/>
             <Link to="/login"
             className='text-[#9F9D9D] border border-[#9F9D9D] rounded-2xl lg:p-2 sm:p-1 flex items-center cursor-pointer'>
             <FiUser className='flex animate-bounce' /> connect

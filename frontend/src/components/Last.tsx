@@ -1,5 +1,7 @@
 import React from 'react'
 import Logo from '../assets/Logo.png'
+import { Link } from 'react-router-dom';
+
 export default function Last() {
   return (
     <div className='bg-black flex gap-10 w-[100wv] h-[100hv] justify-center items-center'>
@@ -28,7 +30,11 @@ export default function Last() {
 
 
         </div>
-        <h2 className='text-[#B3001B] text-2xl cursor-pointer'>Click to be a store owner</h2>
+        <h2 className='text-[#B3001B] text-2xl cursor-pointer'>
+          <Link to="">
+          Click to be a store owner
+          </Link>
+          </h2>
         </div>
          <img className='w-[50%] h-[50%] flex animate-pulse'  src={Logo} alt="" />
 

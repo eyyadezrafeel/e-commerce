@@ -5,6 +5,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Home, Heart } from "lucide-react";
 import { MdCategory } from 'react-icons/md';
 import Logo from "../assets/Logo.png";
+import Landing from '../pages/Landing';
 
 
 export default function Header() {
@@ -35,7 +36,9 @@ export default function Header() {
       }`}
     >
       <div className=' flex flex-row justify-between items-center w-[100vw] h-[20vh] md:p-8 sm:p-4 bg-[#000000]'>
+        <Link to="/Landing">
         <img className='w-[10vw]' src={Logo} alt="" />
+        </Link>
         <div className='flex flex-row justify-between w-[70vw]'>
           <div>
             <div className='relative flex items-center w-[30vw]'>
@@ -48,7 +51,7 @@ export default function Header() {
             </div>
            <div className='flex flex-row justify-between pt-6'>
   <Link 
-    to="/" 
+    to="/landing" 
     className='text-[#9f9d9d] flex gap-2 items-center 
               border border-black rounded-3xl px-4 py-2 
               cursor-pointer hover:border-[#B3001B]'

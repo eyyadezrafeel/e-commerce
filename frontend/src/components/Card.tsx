@@ -12,11 +12,14 @@ const Card = () => {
       <div className=" w-[90vw] overflow-x-auto px-6 py-6 scrollbar-hide " >
         <div className="flex space-x-5 ">
       {products.map((p) => ( 
-        <div className="min-w-[20vw] max-w-[25vw] cursor-pointer  bg-[#000000] border border-[#B3001B] shadow rounded-lg p-4 flex flex-col justify-between flex-shrink-0 hover:scale-105 transform transition" key={p.id}>
-          <img className="w-[100%] h-[70%]" src={p.img} alt="" />
+        <div className="min-w-[20vw] max-w-[25vw] cursor-pointer  bg-[#000000] border border-[#B3001B] shadow rounded-3xl  flex flex-col  flex-shrink-0 hover:scale-105 transform transition" key={p.id}>
+          
+          <img className="w-[100%] h-[70%] rounded-t-2xl" src={p.img} alt="" />
+          <div className=" flex flex-col justify-between p-4">
           <h2 className="text-xl text-white">{p.name}</h2>
           <p className="text-[#9F9D9D]">{p.description}</p>
           <p className="text-lg text-gray-300">${p.price}</p>
+          </div>
         </div>
       ))}
       

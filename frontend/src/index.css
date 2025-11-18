@@ -1,1 +1,14 @@
 @import "tailwindcss";
+
+/* Explicit dark mode support */
+:root {
+  color-scheme: light;
+  --tw-is-dark: 0;
+}
+
+:root.dark {
+  color-scheme: dark;
+  --tw-is-dark: 1;
+}
+
+/* Global styles (add custom CSS below) */

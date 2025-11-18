@@ -1,15 +1,13 @@
-import React from 'react'
-import Header from '../components/Header'
 import Items from '../ItemsComp/Items'
 
-export default function Store() {
+interface StoreProps {
+  isDark: boolean;
+}
+
+export default function Store({ isDark }: StoreProps) {
   return (
     <div>
-      <Header ></Header>
-      <Items/>
-
-
-
+      <Items isDark={isDark} />
     </div>
   )
 }

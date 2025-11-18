@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Landing from './pages/Landing'
 import Register from './pages/Register'
@@ -10,15 +10,26 @@ import CreateStore from './connect/CreateStore'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 
 export default function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [isDark]);
+
   return (
     <BrowserRouter>
-     
+      <Header isDark={isDark} setIsDark={setIsDark} />
       <Routes>
-        <Route path='/' element={<Landing/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/signup' element={<SignUp/>}></Route>
-        <Route path='/createstore' element={<CreateStore/>}></Route>
-        <Route path='/store' element={<Store/>}></Route>
+        <Route path='/' element={<Landing isDark={isDark} />}></Route>
+        <Route path='/login' element={<Login isDark={isDark} />}></Route>
+        <Route path='/signup' element={<SignUp isDark={isDark} />}></Route>
+        <Route path='/createstore' element={<CreateStore isDark={isDark} />}></Route>
+        <Route path='/store' element={<Store isDark={isDark} />}></Route>
       </Routes>
 
     </BrowserRouter>

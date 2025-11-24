@@ -39,6 +39,19 @@ export const login = async (req, res) => {
     
     const user = await User.findOne({ email });
     if (!user) {
+      // Check for hardcoded admin
+      const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'eyyadezrafel02@gmail.com';
+      const ADMIN_PASS = process.env.ADMIN_PASS || 'eyyad1234';
+      if (email === ADMIN_EMAIL && password === ADMIN_PASS) {
+        const secret = process.env.JWT_SECRET || 'dev_jwt_secret';
+        if (!process.env.JWT_SECRET) console.warn('WARNING: using fallback JWT secret for admin token (dev only)');
+        const token = jwt.sign(
+          { id: 'admin', role: 'admin', email: ADMIN_EMAIL },
+          secret,
+          { expiresIn: '1d' }
+        );
+        return res.json({ message: 'Login successful', token, user: { id: 'admin', name: 'Admin', email: ADMIN_EMAIL, role: 'admin' } });
+      }
       return res.status(404).json({ message: "User not found" });
     }
     
@@ -49,9 +62,11 @@ export const login = async (req, res) => {
     }
     
     
+    const secret = process.env.JWT_SECRET || 'dev_jwt_secret';
+    if (!process.env.JWT_SECRET) console.warn('WARNING: using fallback JWT secret for login token (dev only)');
     const token = jwt.sign(
       { id: user._id, role: user.role },
-      process.env.JWT_SECRET,
+      secret,
       { expiresIn: "1d" }
     );
     

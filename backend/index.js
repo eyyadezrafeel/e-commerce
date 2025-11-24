@@ -2,6 +2,8 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authR from "./routes/authR.js";
+import itemR from "./routes/itemR.js";
+import storeR from "./routes/storeR.js";
 
 dotenv.config();
 const app = express();
@@ -20,6 +22,8 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.error("❌ MongoDB Connection Error:", err));
 
 app.use("/api/auth",authR);
+app.use('/api/items', itemR);
+app.use('/api/store', storeR);
 
 
 app.get("/", (req, res) => {

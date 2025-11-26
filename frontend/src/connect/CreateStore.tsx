@@ -1,12 +1,35 @@
-import React from 'react'
+import React , {useState} from 'react'
+import axios from 'axios';
+
+
 
 interface CreateStoreProps {
   isDark: boolean;
 }
 
 export default function CreateStore({ isDark }: CreateStoreProps) {
-  
-  if( true){
+
+  const [storeName, setStoreName] = useState('');
+const [storeEmail, setStoreEmail] = useState('');
+const [phoneNumber, setPhoneNumber] = useState('');
+const [description, setDescription] = useState('');
+const [isSubmitted, setIsSubmitted] = useState(false);
+
+const sendStoreRequest = async () => {
+  try {
+    const response = await axios.post('https://api.example.com/stores', {
+      storeName,
+      storeEmail,
+      phoneNumber,
+      description,
+    });
+    console.log('Store created successfully:', response.data);
+    setIsSubmitted(true);
+  } catch (error) {
+    console.error('Error creating store:', error);
+  }
+
+  if( !isSubmitted){
     return (
     
     <div className="w-screen h-screen flex justify-center items-center"
@@ -29,21 +52,21 @@ export default function CreateStore({ isDark }: CreateStoreProps) {
                 backgroundColor: isDark ? "#000" : "#fff",
                 color: isDark ? "#fff" : "#000"
               }}
-              type="text" placeholder='Enter store name' />
+              type="text" placeholder='Enter store name' onChange={(e)=> setStoreName(e.target.value)} />
             <input className="w-80 px-2 py-2 rounded-full outline-none"
               style={{
                 border: `1px solid ${isDark ? "#B3001B" : "#7EC8FF"}`,
                 backgroundColor: isDark ? "#000" : "#fff",
                 color: isDark ? "#fff" : "#000"
               }}
-              type="text" placeholder='Enter your store email' />
+              type="text" placeholder='Enter your store email' onChange={(e)=> setStoreEmail(e.target.value)} />
             <input className="w-80 px-2 py-2 rounded-full outline-none"
               style={{
                 border: `1px solid ${isDark ? "#B3001B" : "#7EC8FF"}`,
                 backgroundColor: isDark ? "#000" : "#fff",
                 color: isDark ? "#fff" : "#000"
               }}
-              type="number" placeholder='Enter your phone number'/>
+              type="number" placeholder='Enter your phone number' onChange={(e)=> setPhoneNumber(e.target.value)}/>
           </div>
           <textarea
             className="w-full p-3 rounded-lg outline-none"
@@ -54,6 +77,7 @@ export default function CreateStore({ isDark }: CreateStoreProps) {
             }}
             rows={6}
             placeholder="Write your description here..."
+            onChange={(e)=> setDescription(e.target.value)}
           ></textarea>
         </div>
 
@@ -62,7 +86,9 @@ export default function CreateStore({ isDark }: CreateStoreProps) {
             border: `1px solid ${isDark ? "#B3001B" : "#7EC8FF"}`,
             color: isDark ? "#fff" : "#000",
             backgroundColor: isDark ? "#000" : "#fff"
-          }}>Create Store</button>
+          }}
+          onClick={sendStoreRequest}
+          >Create Store</button>
       </div>
     </div>
     )}

@@ -21,6 +21,13 @@ const StoreRequest = new mongoose.Schema(
       trim: true 
     },
 
+    phoneNumber: {
+      type: String,
+      required: false,
+      trim: true
+
+    },
+
     description: { 
       type: String, 
       required: true 

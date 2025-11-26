@@ -17,7 +17,7 @@ const [isSubmitted, setIsSubmitted] = useState(false);
 
 const sendStoreRequest = async () => {
   try {
-    const response = await axios.post('https://api.example.com/stores', {
+    const response = await axios.post('http://localhost:5000/api/store/userRequests', {
       storeName,
       storeEmail,
       phoneNumber,
@@ -28,6 +28,7 @@ const sendStoreRequest = async () => {
   } catch (error) {
     console.error('Error creating store:', error);
   }
+};
 
   if( !isSubmitted){
     return (
@@ -107,4 +108,5 @@ const sendStoreRequest = async () => {
         )
     }
 }
+
 

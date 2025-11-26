@@ -5,7 +5,7 @@ import { createStoreRequest, listStoreRequests, acceptStoreRequest, rejectStoreR
 const router = express.Router();
 
 // User requests to become store owner
-router.post('/requests', authM, createStoreRequest);
+router.post('/userRequests', authM, createStoreRequest);
 
 // Admin endpoints
 router.get('/requests', authM, listStoreRequests);

@@ -1,12 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 import authR from "./routes/authR.js";
 import itemR from "./routes/itemR.js";
 import storeR from "./routes/storeR.js";
 
 dotenv.config();
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 

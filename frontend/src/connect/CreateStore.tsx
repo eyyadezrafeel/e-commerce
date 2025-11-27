@@ -103,7 +103,7 @@ const sendStoreRequest = async () => {
               <h2 className="text-4xl"
                 style={{
                   color: "#10b981"
-                }}>You will resive a massege and an email</h2>
+                }}>You will receive a massege</h2>
             </div>
         )
     }

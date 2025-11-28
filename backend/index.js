@@ -5,6 +5,7 @@ import cors from "cors";
 import authR from "./routes/authR.js";
 import itemR from "./routes/itemR.js";
 import storeR from "./routes/storeR.js";
+import CartR from "./routes/CartR.js";
 
 dotenv.config();
 const app = express();
@@ -26,6 +27,7 @@ mongoose.connect(process.env.MONGO_URI)
 app.use("/api/auth",authR);
 app.use('/api/items', itemR);
 app.use('/api/store', storeR);
+app.use('/api/cart', CartR);
 
 
 app.get("/", (req, res) => {

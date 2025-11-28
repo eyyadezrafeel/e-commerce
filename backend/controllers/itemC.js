@@ -35,9 +35,11 @@ export const createItem = async (req, res) => {
       name,
       description,
       price,
+      quantity,
       store: storeId,
       category,
       subcategory,
+      images:images || [],
     });
 
     await newItem.save();

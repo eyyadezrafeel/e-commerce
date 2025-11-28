@@ -4,15 +4,15 @@ import {
   getUserOrders,
   getAllOrders,
   updateOrderStatus
-} from "../controllers/orderController.js";
-import { protect } from "../middleware/auth.js"; // your JWT auth middleware
-import { adminOnly } from "../middleware/admin.js"; // optional admin middleware
+} from "../controllers/OrderC.js";
+import authM from "../middleware/authM.js"; // your JWT auth middleware
+
 
 const router = express.Router();
 
-router.post("/", protect, createOrder); // user creates order
-router.get("/my-orders", protect, getUserOrders); // user sees their orders
-router.get("/", protect, adminOnly, getAllOrders); // admin sees all orders
-router.put("/:orderId/status", protect, adminOnly, updateOrderStatus); // admin updates status
+router.post("/create", authM, createOrder); // user creates order
+router.get("/my-orders", authM, getUserOrders); // user sees their orders
+router.get("/store-orders", authM, getAllOrders); // admin sees all orders
+router.put("/:orderId/status", authM, updateOrderStatus); // admin updates status
 
 export default router;

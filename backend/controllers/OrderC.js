@@ -1,6 +1,6 @@
-import Order from "../models/orderModel.js";
-import Item from "../models/itemModel.js";
-import Notification from "../models/notificationModel.js";
+import Order from "../shema/Order.js";
+import Item from "../shema/Item.js";
+
 
 // Create a new order
 export const createOrder = async (req, res) => {

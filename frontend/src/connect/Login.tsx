@@ -1,5 +1,5 @@
 import React ,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 interface LoginProps {
@@ -10,6 +10,8 @@ export default function Login({ isDark }: LoginProps) {
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
+const navigate = useNavigate();
+
 const handleLogin = async() =>{
 try{
   const response = await axios.post('http://localhost:5000/api/auth/login', {
@@ -17,6 +19,7 @@ try{
     password,
   });
   console.log('Login successful:', response.data);
+  navigate('/');
 }catch(error){
   console.error('Error during login:', error);
 }

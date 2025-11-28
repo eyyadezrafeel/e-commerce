@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 interface SignUpProps {
@@ -7,18 +7,22 @@ interface SignUpProps {
 }
 
 export default function SignUp({ isDark }: SignUpProps) {
-  const [username, setUsername] = useState('');
+  const [name, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSignUp = async() =>{
     try{
       const response = await axios.post('http://localhost:5000/api/auth/signup', {
-        username,
+        name,
         email,
         password,
       });
       console.log('Sign Up successful:', response.data);
+
+      navigate('/');
     }catch(error){
       console.error('Error during sign up:', error);
     }

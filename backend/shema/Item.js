@@ -4,10 +4,12 @@ const itemSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: String,
   price: { type: Number, required: true },
+  quantity: { type: Number, required: true },
+
   store: { type: mongoose.Schema.Types.ObjectId, ref: "Store", required: true },
   category: { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
   subcategory: { type: mongoose.Schema.Types.ObjectId, ref: "SubCategory" },
-
+  images:[{type: String}],
   
   ratings: [
     {

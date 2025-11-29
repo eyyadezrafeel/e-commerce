@@ -76,7 +76,7 @@ export default function SignUp({ isDark }: SignUpProps) {
         >Submit</button>
       <p style={{
         color: isDark ? "#fff" : "#000"
-      }}> Already have an account?</p>
+      }}>Have an account?</p>
       <Link to="/login" className="no-underline hover:opacity-80 transition-opacity"
         style={{
           color: isDark ? "#B3001B" : "#7EC8FF"

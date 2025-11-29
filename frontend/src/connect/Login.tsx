@@ -68,7 +68,7 @@ try{
         >Submit</button>
       <p style={{
         color: isDark ? "#fff" : "#000"
-      }}> U don't have?</p>
+      }}> Don't have an account?</p>
       <Link to="/signup" className="no-underline hover:opacity-80 transition-opacity"
         style={{
           color: isDark ? "#B3001B" : "#7EC8FF"

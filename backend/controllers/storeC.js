@@ -7,14 +7,14 @@ export const createStoreRequest = async (req, res) => {
   try {
     if (!req.user) return res.status(401).json({ message: 'Authentication required' });
 
-    const { storeName, storeEmail, description } = req.body;
+    const { storeName, storeEmail,phoneNumber, description } = req.body;
     if (!storeName || !storeEmail) return res.status(400).json({ message: 'storeName and storeEmail are required' });
 
     // prevent duplicate pending requests from same user
     const existing = await StoreRequest.findOne({ user: req.user.id, status: 'pending' });
     if (existing) return res.status(400).json({ message: 'You already have a pending request' });
 
-    const reqDoc = new StoreRequest({ user: req.user.id, storeName, storeEmail, description });
+    const reqDoc = new StoreRequest({ user: req.user.id, storeName, storeEmail,phoneNumber, description });
     await reqDoc.save();
     res.status(201).json({ message: 'Store request submitted', request: reqDoc });
   } catch (error) {

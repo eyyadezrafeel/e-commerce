@@ -10,7 +10,7 @@ export const createStoreRequest = async (req, res) => {
     const { storeName, storeEmail,phoneNumber, description } = req.body;
     if (!storeName || !storeEmail) return res.status(400).json({ message: 'storeName and storeEmail are required' });
 
-    // prevent duplicate pending requests from same user
+    
     const existing = await StoreRequest.findOne({ user: req.user.id, status: 'pending' });
     if (existing) return res.status(400).json({ message: 'You already have a pending request' });
 
@@ -46,14 +46,14 @@ export const acceptStoreRequest = async (req, res) => {
     if (!request) return res.status(404).json({ message: 'Request not found' });
     if (request.status !== 'pending') return res.status(400).json({ message: 'Request already processed' });
 
-    // create store
+    
     const store = new Store({ name: request.storeName, owner: request.user, description: request.description });
     await store.save();
 
-    // update user role
+    
     await User.findByIdAndUpdate(request.user, { role: 'storeOwner' });
 
-    // mark request accepted
+   
     request.status = 'accepted';
     await request.save();
 

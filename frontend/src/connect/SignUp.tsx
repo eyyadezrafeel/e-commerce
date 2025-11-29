@@ -21,6 +21,10 @@ export default function SignUp({ isDark }: SignUpProps) {
         password,
       });
       console.log('Sign Up successful:', response.data);
+        const token  = response.data.token;
+  if(token){
+    localStorage.setItem('token', token);
+  }
 
       navigate('/');
     }catch(error){

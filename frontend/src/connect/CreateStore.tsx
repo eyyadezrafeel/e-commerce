@@ -17,12 +17,25 @@ const [isSubmitted, setIsSubmitted] = useState(false);
 
 const sendStoreRequest = async () => {
   try {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      console.error('No token found, user might not be logged in.');
+      return;
+    }
+
     const response = await axios.post('http://localhost:5000/api/store/userRequests', {
       storeName,
       storeEmail,
       phoneNumber,
       description,
-    });
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  
+  );
     console.log('Store created successfully:', response.data);
     setIsSubmitted(true);
   } catch (error) {

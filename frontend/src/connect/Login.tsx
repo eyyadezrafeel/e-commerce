@@ -19,6 +19,11 @@ try{
     password,
   });
   console.log('Login successful:', response.data);
+  const token  = response.data.token;
+  if(token){
+    localStorage.setItem('token', token);
+  }
+
   navigate('/');
 }catch(error){
   console.error('Error during login:', error);

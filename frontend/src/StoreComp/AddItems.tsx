@@ -12,7 +12,7 @@ const [subcategory, setSubcategory] = useState('');
 
 const handleAddItem = async () => {
     try{
-    const response = await axios.post('http://localhost:5000/api/items/add', {
+    const response = await axios.post('http://localhost:5000/api/items/create', {
         name,
         description,
         price,

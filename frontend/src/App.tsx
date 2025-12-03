@@ -6,6 +6,7 @@ import Store from './pages/Store'
 import Login from './connect/Login'
 import SignUp from './connect/SignUp'
 import CreateStore from './connect/CreateStore'
+import AddItems from './StoreComp/AddItems'
 
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 
@@ -30,6 +31,8 @@ export default function App() {
         <Route path='/signup' element={<SignUp isDark={isDark} />}></Route>
         <Route path='/createstore' element={<CreateStore isDark={isDark} />}></Route>
         <Route path='/store' element={<Store isDark={isDark} />}></Route>
+        <Route path='/additems' element={<AddItems />}></Route>
+
       </Routes>
 
     </BrowserRouter>

@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { FiUser, FiSearch } from "react-icons/fi";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Home, Heart } from "lucide-react";
-import { MdCategory } from 'react-icons/md';
+import { MdCategory,MdAdd } from 'react-icons/md';
 import Logo from "../assets/Logo.png";
 import ThemeToggle from './ThemeToggle';
 
@@ -107,6 +107,17 @@ export default function Header({ isDark, setIsDark }: HeaderProps) {
     }}
   >
     <Heart className='h-4' /> Favorite
+  </Link>
+  <Link
+  to = "/additems"
+    className="flex gap-2 items-center rounded-full px-4 py-2 no-underline transition-all duration-200"
+    style={{
+      color: location.pathname === "/favorites" ? (isDark ? "#7EC8FF" : "#B3001B") : (isDark ? "#fff" : "#000"),
+      border: `1px solid ${location.pathname === "/favorites" ? (isDark ? "#7EC8FF" : "#B3001B") : (isDark ? "#B3001B" : "#7EC8FF")}`,
+      backgroundColor: location.pathname === "/favorites" ? (isDark ? "rgba(179, 0, 27, 0.1)" : "rgba(126, 200, 255, 0.1)") : "transparent"
+    }}
+  >
+    <MdAdd className='h-4' /> Add Items
   </Link>
 </div>
           </div>

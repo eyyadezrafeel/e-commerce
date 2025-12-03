@@ -29,16 +29,16 @@ const handleAddItem = async () => {
 }
 
   return (
-    <div>
+    <div className='flex flex-col justify-center items-center h-screen gap-4'>
         <h2>Add New Item</h2>
 
-        <input type="text" placeholder='enter product name' onChange={(e)=>setName(e.target.value)}/>
-        <input type="text" placeholder='enter product description' onChange={(e)=>setDescription(e.target.value)} />
-        <input type="text" placeholder='enter product price' onChange={(e)=>setPrice(e.target.value)} />
-        <input type="text" placeholder='enter category' onChange={(e)=>setCategory(e.target.value) } />
-        <input type="text" placeholder='enter subcategory' onChange={(e)=>setSubcategory(e.target.value)} />
+        <input type="text" placeholder='enter product name' onChange={(e)=>setName(e.target.value)} className='border border-[#7EC8FF] p-2 rounded-2xl'/>
+        <input type="text" placeholder='enter product description' onChange={(e)=>setDescription(e.target.value)} className='border border-[#7EC8FF] p-2 rounded-2xl' />
+        <input type="text" placeholder='enter product price' onChange={(e)=>setPrice(e.target.value)} className='border border-[#7EC8FF] p-2 rounded-2xl' />
+        <input type="text" placeholder='enter category' onChange={(e)=>setCategory(e.target.value) }  className='border border-[#7EC8FF] p-2 rounded-2xl'/>
+        <input type="text" placeholder='enter subcategory' onChange={(e)=>setSubcategory(e.target.value)} className='border border-[#7EC8FF] p-2 rounded-2xl' />
 
-        <button
+        <button className='border border-[#7EC8FF] p-4 rounded-3xl'
         onClick={handleAddItem}>Add</button>
 
 

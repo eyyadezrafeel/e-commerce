@@ -4,7 +4,7 @@ import User from '../shema/User.js';
 
 export const createItem = async (req, res) => {
   try {
-    const { name, description, price, store, category, subcategory } = req.body;
+    const { name, description, price, quantity, store, category, subcategory } = req.body;
 
     // Require authenticated user
     if (!req.user) return res.status(401).json({ message: 'Authentication required' });
@@ -30,6 +30,7 @@ export const createItem = async (req, res) => {
         return res.status(403).json({ message: 'You can only add items to your own store' });
       }
     }
+    const images = req.files?.map(file => `uploads/items/${file.filename}`) || [];
 
     const newItem = new Item({
       name,
@@ -39,7 +40,7 @@ export const createItem = async (req, res) => {
       store: storeId,
       category,
       subcategory,
-      images:images || [],
+      images,
     });
 
     await newItem.save();

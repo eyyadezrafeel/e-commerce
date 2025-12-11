@@ -119,6 +119,14 @@ export default function Header({ isDark, setIsDark }: HeaderProps) {
   >
     <MdAdd className='h-4' /> Add Items
   </Link>
+  <Link to = '/requests '
+   className="flex gap-2 items-center rounded-full px-4 py-2 no-underline transition-all duration-200"
+      style={{
+      color: location.pathname === "/favorites" ? (isDark ? "#7EC8FF" : "#B3001B") : (isDark ? "#fff" : "#000"),
+      border: `1px solid ${location.pathname === "/favorites" ? (isDark ? "#7EC8FF" : "#B3001B") : (isDark ? "#B3001B" : "#7EC8FF")}`,
+      backgroundColor: location.pathname === "/favorites" ? (isDark ? "rgba(179, 0, 27, 0.1)" : "rgba(126, 200, 255, 0.1)") : "transparent"
+    }}
+    >Store Request</Link>
 </div>
           </div>
           <div className="flex flex-row justify-between w-[22vw] h-10">

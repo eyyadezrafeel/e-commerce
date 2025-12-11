@@ -58,7 +58,7 @@ const handleSubmit = async () => {
 }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center h-screen gap-4'>
+    <form onSubmit={handleSubmit} className='flex flex-col justify-center items-center h-screen gap-4 mt-30'>
         <h2>Add New Item</h2>
 
         <input type="text" placeholder='enter product name' onChange={(e)=>setName(e.target.value)} className='border border-[#7EC8FF] p-2 rounded-2xl'/>

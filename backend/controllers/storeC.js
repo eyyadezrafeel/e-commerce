@@ -40,25 +40,30 @@ export const acceptStoreRequest = async (req, res) => {
   try {
     if (!req.user) return res.status(401).json({ message: 'Authentication required' });
     if (req.user.role !== 'admin') return res.status(403).json({ message: 'Admin access required' });
-
+    
     const { id } = req.params;
     const request = await StoreRequest.findById(id);
+    
     if (!request) return res.status(404).json({ message: 'Request not found' });
     if (request.status !== 'pending') return res.status(400).json({ message: 'Request already processed' });
-
     
-    const store = new Store({ name: request.storeName, owner: request.user, description: request.description });
+    const store = new Store({
+      name: request.storeName,
+      owner: request.user,
+      email: request.storeEmail,
+      phoneNumber: request.phoneNumber,
+      description: request.description
+    });
+    
     await store.save();
-
-    
     await User.findByIdAndUpdate(request.user, { role: 'storeOwner' });
-
-   
-    request.status = 'accepted';
+    
+    request.status = 'approved';  // ✅ Change from 'accepted' to 'approved'
     await request.save();
-
+    
     res.status(200).json({ message: 'Request accepted', store });
   } catch (error) {
+    console.error('Error:', error);
     res.status(500).json({ message: error.message });
   }
 };
